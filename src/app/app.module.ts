@@ -7,10 +7,12 @@ import { MatToolbarModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { environment } from 'src/environments/environment.prod';
+import { TaskItemComponent } from './task-item/task-item.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TaskItemComponent
   ],
   imports: [
     BrowserAnimationsModule,

@@ -29,7 +29,8 @@ export class TaskListComponent implements OnInit {
   }
 
 
-  showDialog(): void {
+  showDialog(task?: Task): void {
+
     this.dialog.open(TaskDialogComponent);
   }
 }

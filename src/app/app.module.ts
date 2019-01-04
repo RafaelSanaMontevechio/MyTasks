@@ -13,7 +13,8 @@ import {
   MatDialogModule,
   MatFormField,
   MatInputModule,
-  MatFormFieldModule
+  MatFormFieldModule,
+  MatMenuModule
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
@@ -46,6 +47,7 @@ import { FormsModule } from '@angular/forms';
     MatInputModule,
     MatLineModule,
     MatListModule,
+    MatMenuModule,
     MatSlideToggleModule,
     MatToolbarModule
   ],

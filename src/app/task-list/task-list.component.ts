@@ -28,9 +28,12 @@ export class TaskListComponent implements OnInit {
     this.taskService.update(task);
   }
 
-
   showDialog(task?: Task): void {
     const config: MatDialogConfig<any> = (task) ? {data: { task }} : null;
     this.dialog.open(TaskDialogComponent, config);
+  }
+
+  onDelete(task: Task): void {
+    this.taskService.delete(task);
   }
 }

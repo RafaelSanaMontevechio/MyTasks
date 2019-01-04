@@ -22,6 +22,7 @@ import { TaskItemComponent } from './task-item/task-item.component';
 import { TaskListComponent } from './task-list/task-list.component';
 import { TaskService } from './task.service';
 import { TaskDialogComponent } from './task-dialog/task-dialog.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,13 +31,14 @@ import { TaskDialogComponent } from './task-dialog/task-dialog.component';
     TaskListComponent,
     TaskDialogComponent
   ],
-  entryComponents:[
+  entryComponents: [
     TaskDialogComponent
   ],
   imports: [
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    FormsModule,
     MatButtonModule,
     MatDialogModule,
     MatFormFieldModule,

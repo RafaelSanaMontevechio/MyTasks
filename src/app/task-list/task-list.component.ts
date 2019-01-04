@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Task } from '../models/task.model';
 import { TaskService } from '../task.service';
 import { Observable } from 'rxjs';
+import { take } from 'rxjs/operators';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 import { TaskDialogComponent } from '../task-dialog/task-dialog.component';
 
@@ -14,13 +15,18 @@ export class TaskListComponent implements OnInit {
 
   tasks$: Observable<Task[]>;
   selectedTask: Task;
+  loading: Boolean = true;
 
   constructor(
     private dialog: MatDialog,
-     private taskService: TaskService) { }
+    private taskService: TaskService) { }
 
   ngOnInit(): void {
     this.tasks$ = this.taskService.tasks.valueChanges();
+
+    this.tasks$
+      .pipe(take(1))
+      .subscribe(() => this.loading = false);
   }
 
   onPerformTask(task: Task): void {
@@ -29,7 +35,7 @@ export class TaskListComponent implements OnInit {
   }
 
   showDialog(task?: Task): void {
-    const config: MatDialogConfig<any> = (task) ? {data: { task }} : null;
+    const config: MatDialogConfig<any> = (task) ? { data: { task } } : null;
     this.dialog.open(TaskDialogComponent, config);
   }
 
